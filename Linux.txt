@@ -15,3 +15,6 @@ sudo apt install cpuid  #Debian/Ubuntu systems
 sudo yum install cpuid	#RHEL/CentOS systems 
 sudo dnf install cpuid	#Fedora 22+ 
 ------------------------------------
+
+df            دستور فضای هارد دیسک به مگابایت
+-------------------------------------
