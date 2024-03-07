@@ -1,1 +1,17 @@
-﻿
+﻿cat /proc/cpuinfo  دستور اول نمایش اطلاعات پردازنده
+----------
+lscpu            دستور دوم نمایش اطلاعات پردازنده
+----------
+top    این دو دستور برای نمایس اطلاعات پردازنده
+htop
+----------
+
+sudo dmidecode --type processor           برای نمایش اطلاعات سخت افزاری پردازنده
+----------
+cpuid  برای استفاده از این دستور برای نمایش اطلاعات پردازنده بایدابتدا آن را نصب کرد 
+
+برای نصب 
+sudo apt install cpuid  #Debian/Ubuntu systems
+sudo yum install cpuid	#RHEL/CentOS systems 
+sudo dnf install cpuid	#Fedora 22+ 
+------------------------------------
