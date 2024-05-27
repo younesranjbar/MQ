@@ -2,9 +2,12 @@
 ----------
 lscpu            دستور دوم نمایش اطلاعات پردازنده
 ----------
+YOUNWS
+
 top    این دو دستور برای نمایس اطلاعات پردازنده
 htop
 ----------
+SSSSSS
 
 sudo dmidecode --type processor           برای نمایش اطلاعات سخت افزاری پردازنده
 ----------
@@ -12,6 +15,10 @@ cpuid  برای استفاده از این دستور برای نمایش اطل
 
 برای نصب 
 sudo apt install cpuid  #Debian/Ubuntu systems
+
+
+TTTT
+
 sudo yum install cpuid	#RHEL/CentOS systems 
 sudo dnf install cpuid	#Fedora 22+ 
 ------------------------------------
