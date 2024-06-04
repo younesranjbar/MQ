@@ -17,4 +17,4 @@ jobs:
         USERNAME: muchshop
         PASSWORD: NP9:kkuWeY23(6
       run: |
-        scp -r . $USERNAME@$HOST:/path/to/your/cpanel/directory
+        scp -r . $USERNAME@$HOST:/home/muchshop
