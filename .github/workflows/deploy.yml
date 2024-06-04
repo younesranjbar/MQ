@@ -19,7 +19,7 @@ jobs:
         ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
 
     - name: Sync files to server
-      run: rsync -avz --delete-after --exclude='.git*' ./ https://muchshop.ir/cpanel:/home/user/public_html/
+      run: rsync -avz --delete-after --exclude='.git*' ./muchshop:/home/user/public_html/
 
     - name: Clear cache (optional)
-      run: ssh https://muchshop.ir/cpanel 'cd /home/user/public_html && wp cache flush
+      run: ssh muchshop 'cd /home/user/public_html && wp cache flush
