@@ -1,25 +1,29 @@
-name: Deploy to cPanel
+name: My GitHub Actions Workflow
 
 on:
   push:
-    branches:
-      - main
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
 
 jobs:
-  deploy:
+
+  build:
     runs-on: ubuntu-latest
-
+    
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v2
-
+    - uses: actions/checkout@v2
+    
     - name: Setup SSH
-      uses: webfactory/ssh-agent@v0.5.3
-      with:
-        ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
-
-    - name: Sync files to server
-      run: rsync -avz --delete-after --exclude='.git*' ./muchshop:/home/user/public_html/
-
-    - name: Clear cache (optional)
-      run: ssh muchshop 'cd /home/user/public_html && wp cache flush
+      env:
+        SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+      run: |
+        mkdir -p ~/.ssh
+        echo "$SSH_PRIVATE_KEY" > ~/.ssh/id_rsa
+        chmod 600 ~/.ssh/id_rsa
+        ssh-keyscan -H github.com >> ~/.ssh/known_hosts
+        
+    - name: Build and Test
+      run: |
+        # your build and test commands go here
+        echo "Building and testing the project..."
