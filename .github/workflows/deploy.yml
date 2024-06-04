@@ -1,29 +1,20 @@
-name: My GitHub Actions Workflow
+name: Deploy to cPanel
 
 on:
   push:
     branches: [ main ]
-  pull_request:
-    branches: [ main ]
 
 jobs:
 
-  build:
+  deploy:
     runs-on: ubuntu-latest
     
     steps:
     - uses: actions/checkout@v2
-    
-    - name: Setup SSH
+    - name: Deploy to cPanel
       env:
-        SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+        HOST: cp02.zagrio.com/cpanel
+        USERNAME: muchshop
+        PASSWORD: NP9:kkuWeY23(6
       run: |
-        mkdir -p ~/.ssh
-        echo "$SSH_PRIVATE_KEY" > ~/.ssh/id_rsa
-        chmod 600 ~/.ssh/id_rsa
-        ssh-keyscan -H github.com >> ~/.ssh/known_hosts
-        
-    - name: Build and Test
-      run: |
-        # your build and test commands go here
-        echo "Building and testing the project..."
+        scp -r . $USERNAME@$HOST:/path/to/your/cpanel/directory
