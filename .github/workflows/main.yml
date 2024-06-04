@@ -1,4 +1,7 @@
-on: push
+on: 
+push:
+barnches:
+   -main
 name: 🚀 Deploy website on push
 jobs:
   web-deploy:
@@ -11,6 +14,7 @@ jobs:
     - name: 📂 Sync files
       uses: SamKirkland/FTP-Deploy-Action@v4.3.5
       with:
-        server: ftp.samkirkland.com
-        username: myFtpUserName
-        password: ${{ secrets.ftp_password }}
+        server: ftp.muchshop.ir
+        username: muchshop
+        password:
+        server-dir:/cp02.zagrio.com/home/muchshop
