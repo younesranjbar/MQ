@@ -1,0 +1,25 @@
+name: Deploy to cPanel
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Setup SSH
+      uses: webfactory/ssh-agent@v0.5.3
+      with:
+        ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+
+    - name: Sync files to server
+      run: rsync -avz --delete-after --exclude='.git*' ./ user@your-cpanel-domain:/home/user/public_html/
+
+    - name: Clear cache (optional)
+      run: ssh muchshop 'cd /home/user/public_html && wp cache flush'
