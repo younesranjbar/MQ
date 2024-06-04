@@ -17,4 +17,4 @@ jobs:
         server: ftp.muchshop.ir
         username: muchshop
         password:
-        server-dir:/cp02.zagrio.com/home/muchshop
+        server-dir: /cp02.zagrio.com/home/muchshop
